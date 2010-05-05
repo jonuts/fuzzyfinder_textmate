@@ -23,8 +23,7 @@ command! FuzzyFinderTextMateRefreshFiles ruby refresh_finder
 function! InstantiateTextMateMode() "{{{
 ruby << RUBY
   begin
-    # File.dirname(__FILE__) != %:p
-    __FILE__dir = ::File.dirname(VIM.evaluate("expand('%:p')"))
+    __FILE__dir = ::File.dirname(VIM.evaluate('expand("%:p")'))
     require ::File.join(__FILE__dir, '../ruby/fuzzy_file_finder')
   rescue LoadError => e
     begin
